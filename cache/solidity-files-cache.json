@@ -6,7 +6,7 @@
       "contentHash": "ae66265769cc28ebdaa34881df95bc5e",
       "sourceName": "contracts/Lock.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.9",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -41,7 +41,7 @@
       "contentHash": "d860c1728dc8bf18e7e6ae7953aa8c67",
       "sourceName": "contracts/Types.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.9",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -78,7 +78,7 @@
       "contentHash": "896f68942c3a20e9ae3c3c5bfd3add54",
       "sourceName": "hardhat/console.sol",
       "solcConfig": {
-        "version": "0.8.19",
+        "version": "0.8.9",
         "settings": {
           "optimizer": {
             "enabled": false,
@@ -106,6 +106,48 @@
       ],
       "artifacts": [
         "console"
+      ]
+    },
+    "/home/intrepid07/code/solidity-basics/contracts/Variables.sol": {
+      "lastModificationDate": 1699672888809,
+      "contentHash": "b4c24a04dfb7eb28744aaa3586ed97df",
+      "sourceName": "contracts/Variables.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Variables1",
+        "Variables2",
+        "Variables3",
+        "Variables4",
+        "Variables5",
+        "Variables6"
       ]
     }
   }
