@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const { ethers } = require('hardhat');
 
 const tokens = (n) => {
-  return ethers.utils.parseUnits(n.toString(), 'ether')
+  return ethers.parseUnits(n.toString(), 'ether')
 }
 
 const ether = tokens
@@ -78,6 +78,14 @@ describe('Variables', () => {
     it('demonstrates "this" global variable', async () => {      
       let thisAddress = await contract.contractAddress()
       expect(thisAddress).to.equal(contract.target)
+    })
+
+    it('demonstrates "msg" & "tx" global variables', async () => {
+      await contract.pay({ value: ether(1) })
+      expect(await contract.amount()).to.equal(ether(1))
+      let accounts = await ethers.getSigners()
+      expect(await contract.payer()).to.equal(accounts[0].address)
+      expect(await contract.origin()).to.equal(accounts[0].address)
     })
 
     it('demonstrates "block" global variable', async () => {
