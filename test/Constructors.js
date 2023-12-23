@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const { ethers } = require('hardhat');
 
 const tokens = (n) => {
-  return ethers.parseUnits(n.toString(), 'ether')
+  return ethers.utils.parseUnits(n.toString(), 'ether')
 }
 
 const ether = tokens
@@ -37,11 +37,8 @@ describe('Constructors', () => {
     it('has a payable constructor', async () => {
       const Contract = await ethers.getContractFactory('Constructors4')
       let contract = await Contract.deploy({ value: ether(1) })
-      // console.log("contract: ", contract)
-      // console.log("contract.target: ", contract.target)
-      // console.log("contract.runner.address: ", contract.runner.address)
-      let balance = await ethers.provider.getBalance(contract.target)
-      expect(ethers.formatEther(balance)).to.equal('1.0')
+      let balance = await ethers.provider.getBalance(contract.address)
+      expect(ethers.utils.formatEther(balance)).to.equal('1.0')
     })
   })
 
@@ -52,7 +49,6 @@ describe('Constructors', () => {
       expect(await contract.name()).to.equal('Example 5')
     })
   })
-
 
   describe('Example 6', () => {
     it('extends the parent constructor', async () => {

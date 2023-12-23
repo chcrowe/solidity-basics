@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const { ethers } = require('hardhat');
 
 const tokens = (n) => {
-  return ethers.parseUnits(n.toString(), 'ether')
+  return ethers.utils.parseUnits(n.toString(), 'ether')
 }
 
 const ether = tokens
@@ -77,7 +77,7 @@ describe('Variables', () => {
 
     it('demonstrates "this" global variable', async () => {      
       let thisAddress = await contract.contractAddress()
-      expect(thisAddress).to.equal(contract.target)
+      expect(thisAddress).to.equal(contract.address)
     })
 
     it('demonstrates "msg" & "tx" global variables', async () => {
